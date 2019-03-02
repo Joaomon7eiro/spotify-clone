@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SpotifyClone</string>
+    <string name="enterScreenText2">Grátis no Spotify.</string>
+    <string name="enterScreenText1">Milhões de músicas à sua escolha.</string>
+    <string name="enterScreenLogoDescription">Logo Tela Inicial</string>
+    <string name="facebookButtonText">CONTINUAR COM O FACEBOOK</string>
+    <string name="enterScreenSignInText">ENTRAR</string>
+    <string name="enterScreenSignUpText">INSCREVA-SE GRÁTIS</string>
+</resources>
