@@ -6,4 +6,5 @@
     <string name="facebookButtonText">CONTINUAR COM O FACEBOOK</string>
     <string name="enterScreenSignInText">ENTRAR</string>
     <string name="enterScreenSignUpText">INSCREVA-SE GRÁTIS</string>
+    <string name="create_account_text">Criar conta</string>
 </resources>
