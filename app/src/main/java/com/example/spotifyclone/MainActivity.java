@@ -2,6 +2,7 @@ package com.example.spotifyclone;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -12,33 +13,33 @@ public class MainActivity extends AppCompatActivity {
     Button mFacebookButton;
     Button mSignInButton;
 
-    final float DECREASED_SIZE = 0.97f;
-    final int FULL_SIZE = 1;
+    static final float DECREASED_SIZE = 0.97f;
+    static final int FULL_SIZE = 1;
 
     SimpleTouchListener signUpButtonTouchListener = new SimpleTouchListener() {
         @Override
         public void onDownTouchAction() {
             mSignUpButton.setScaleX(DECREASED_SIZE);
             mSignUpButton.setScaleY(DECREASED_SIZE);
-            mSignUpButton.setBackgroundTintList(getResources().getColorStateList(R.color.colorPrimaryLight));
+            ViewCompat.setBackgroundTintList(mSignUpButton, getResources().getColorStateList(R.color.colorPrimaryLight));
         }
 
         @Override
         public void onUpTouchAction() {
             mSignUpButton.setScaleX(FULL_SIZE);
             mSignUpButton.setScaleY(FULL_SIZE);
-            mSignUpButton.setBackgroundTintList(getResources().getColorStateList(R.color.colorPrimary));
+            ViewCompat.setBackgroundTintList(mSignUpButton, getResources().getColorStateList(R.color.colorPrimary));
 
             Intent intent = new Intent(getApplication(), SignInActivity.class);
             startActivity(intent);
-            overridePendingTransition(0,0);
+            overridePendingTransition(0, 0);
         }
 
         @Override
         public void onCancelTouchAction() {
             mSignUpButton.setScaleX(FULL_SIZE);
             mSignUpButton.setScaleY(FULL_SIZE);
-            mSignUpButton.setBackgroundTintList(getResources().getColorStateList(R.color.colorPrimary));
+            ViewCompat.setBackgroundTintList(mSignUpButton, getResources().getColorStateList(R.color.colorPrimary));
         }
     };
 
@@ -47,14 +48,14 @@ public class MainActivity extends AppCompatActivity {
         public void onDownTouchAction() {
             mFacebookButton.setScaleX(DECREASED_SIZE);
             mFacebookButton.setScaleY(DECREASED_SIZE);
-            mFacebookButton.setBackgroundTintList(getResources().getColorStateList(R.color.facebookColorLight));
+            ViewCompat.setBackgroundTintList(mFacebookButton, getResources().getColorStateList(R.color.facebookColorLight));
         }
 
         @Override
         public void onUpTouchAction() {
             mFacebookButton.setScaleX(FULL_SIZE);
             mFacebookButton.setScaleY(FULL_SIZE);
-            mFacebookButton.setBackgroundTintList(getResources().getColorStateList(R.color.facebookColor));
+            ViewCompat.setBackgroundTintList(mFacebookButton, getResources().getColorStateList(R.color.facebookColor));
 
         }
 
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         public void onCancelTouchAction() {
             mFacebookButton.setScaleX(FULL_SIZE);
             mFacebookButton.setScaleY(FULL_SIZE);
-            mFacebookButton.setBackgroundTintList(getResources().getColorStateList(R.color.facebookColor));
+            ViewCompat.setBackgroundTintList(mFacebookButton, getResources().getColorStateList(R.color.facebookColor));
         }
     };
 
@@ -71,14 +72,14 @@ public class MainActivity extends AppCompatActivity {
         public void onDownTouchAction() {
             mSignInButton.setScaleX(DECREASED_SIZE);
             mSignInButton.setScaleY(DECREASED_SIZE);
-            mSignInButton.setBackgroundTintList(getResources().getColorStateList(R.color.colorGray));
+            ViewCompat.setBackgroundTintList(mSignInButton, getResources().getColorStateList(R.color.colorGray));
         }
 
         @Override
         public void onUpTouchAction() {
             mSignInButton.setScaleX(FULL_SIZE);
             mSignInButton.setScaleY(FULL_SIZE);
-            mSignInButton.setBackgroundTintList(getResources().getColorStateList(R.color.colorWhite));
+            ViewCompat.setBackgroundTintList(mSignInButton, getResources().getColorStateList(R.color.colorWhite));
 
         }
 
@@ -86,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         public void onCancelTouchAction() {
             mSignInButton.setScaleX(FULL_SIZE);
             mSignInButton.setScaleY(FULL_SIZE);
-            mSignInButton.setBackgroundTintList(getResources().getColorStateList(R.color.colorWhite));
+            ViewCompat.setBackgroundTintList(mSignInButton, getResources().getColorStateList(R.color.colorWhite));
         }
     };
 

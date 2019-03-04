@@ -8,7 +8,7 @@
     tools:context=".SignInActivity">
 
     <ImageView
-        android:id="@+id/returnButton"
+        android:id="@+id/return_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -16,7 +16,8 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/ic_arrow_back_black_24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/retorn_button_description" />
 
     <TextView
         android:id="@+id/create_account_text"
@@ -44,7 +45,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="50dp"
         android:textColor="@color/colorWhite"
-        android:text="Qual é o seu e-mail?"
+        android:text="@string/label_email_text"
         android:textStyle="bold"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +65,8 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/label_email" />
+        app:layout_constraintTop_toBottomOf="@+id/label_email"
+        tools:ignore="Autofill,LabelFor" />
 
     <TextView
         android:id="@+id/hint_email"
@@ -72,12 +74,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:textSize="11dp"
+        android:textSize="11sp"
         android:layout_marginTop="4dp"
         android:textColor="@color/colorWhite"
-        android:text="Você vai ter que confirmar esse e-mail mais tarde"
+        android:text="@string/hint_email_text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        tools:ignore="SmallSp" />
 
     <TextView
         android:id="@+id/label_password"
@@ -87,7 +90,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:textSize="18sp"
-        android:text="Crie uma senha"
+        android:text="@string/label_password_text"
         android:textStyle="bold"
         android:textColor="@color/colorWhite"
         app:layout_constraintStart_toStartOf="parent"
@@ -108,10 +111,12 @@
         android:drawableRight="@drawable/ic_visibility_off_black_24dp"
         android:inputType="textPassword"
         android:paddingRight="10dp"
+        android:paddingEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/label_password" />
+        app:layout_constraintTop_toBottomOf="@+id/label_password"
+        tools:ignore="Autofill,LabelFor,RtlSymmetry" />
 
     <TextView
         android:id="@+id/hint_password"
@@ -122,9 +127,10 @@
         android:layout_marginTop="4dp"
         android:textSize="11sp"
         android:textColor="@color/colorWhite"
-        android:text="Escolha pelo menos oito caracteres."
+        android:text="@string/hint_password_text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        tools:ignore="SmallSp" />
 
     <Button
         android:id="@+id/next_button"
@@ -138,9 +144,9 @@
         android:paddingRight="50dp"
         android:textColor="@color/colorTransparentBlack"
         android:background="@drawable/rounded_button"
-        android:backgroundTint="@color/colorExtraTransparentWhite"
+        app:backgroundTint="@color/colorExtraTransparentWhite"
         android:layout_marginRight="8dp"
-        android:text="AVANÇAR"
+        android:text="@string/next_button_text"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

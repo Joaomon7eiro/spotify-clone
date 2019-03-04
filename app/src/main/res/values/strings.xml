@@ -1,10 +1,16 @@
 <resources>
     <string name="app_name">SpotifyClone</string>
-    <string name="enterScreenText2">Grátis no Spotify.</string>
-    <string name="enterScreenText1">Milhões de músicas à sua escolha.</string>
-    <string name="enterScreenLogoDescription">Logo Tela Inicial</string>
-    <string name="facebookButtonText">CONTINUAR COM O FACEBOOK</string>
-    <string name="enterScreenSignInText">ENTRAR</string>
-    <string name="enterScreenSignUpText">INSCREVA-SE GRÁTIS</string>
+    <string name="enter_screen_text_2">Grátis no Spotify.</string>
+    <string name="enter_screen_text_1">Milhões de músicas à sua escolha.</string>
+    <string name="enter_screen_logo_description">Logo Tela Inicial</string>
+    <string name="facebook_button_text">CONTINUAR COM O FACEBOOK</string>
+    <string name="enter_screen_sign_in_text">ENTRAR</string>
+    <string name="enter_screen_sign_up_text">INSCREVA-SE GRÁTIS</string>
     <string name="create_account_text">Criar conta</string>
+    <string name="retorn_button_description">Retorna à Activity anterior</string>
+    <string name="label_email_text">Qual é o seu e-mail?</string>
+    <string name="hint_email_text">Você vai ter que confirmar esse e-mail mais tarde</string>
+    <string name="label_password_text">Crie uma senha</string>
+    <string name="hint_password_text">Escolha pelo menos oito caracteres.</string>
+    <string name="next_button_text">AVANÇAR</string>
 </resources>
