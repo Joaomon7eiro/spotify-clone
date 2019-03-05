@@ -98,7 +98,7 @@
         android:backgroundTint="@color/colorWhite"
         android:letterSpacing="@dimen/buttonLetterSpacing"
         android:text="@string/enter_screen_sign_in_text"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorBlack"
         android:textSize="@dimen/enterScreenButtonTextSize"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

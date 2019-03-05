@@ -32,7 +32,7 @@
         android:textSize="32sp"
         android:textColor="@color/colorWhite"
         android:textStyle="bold"
-        android:text="@string/sign_in_text"
+        android:text="@string/create_account_text"
         android:textAlignment="center"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
@@ -42,14 +42,14 @@
 
 
     <TextView
-        android:id="@+id/label_sign_in_email"
+        android:id="@+id/label_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="62dp"
         android:textColor="@color/colorWhite"
-        android:text="@string/label_sign_in_email_text"
+        android:text="@string/label_email_text"
         android:textStyle="bold"
         android:textSize="18sp"
         android:layout_alignParentLeft="true"
@@ -57,7 +57,7 @@
         android:layout_below="@+id/sign_in_text" />
 
     <EditText
-        android:id="@+id/sign_in_email"
+        android:id="@+id/email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -72,9 +72,23 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/label_sign_in_email"
+        android:layout_below="@+id/label_email"
         tools:ignore="Autofill,LabelFor" />
 
+    <TextView
+        android:id="@+id/hint_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="11sp"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/colorWhite"
+        android:text="@string/hint_email_text"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/email"
+        tools:ignore="SmallSp" />
 
     <TextView
         android:id="@+id/label_sign_in_password"
@@ -82,17 +96,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:textSize="18sp"
-        android:text="@string/label_sign_in_password"
+        android:text="@string/label_password_text"
         android:textStyle="bold"
         android:textColor="@color/colorWhite"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/sign_in_email" />
+        android:layout_below="@+id/hint_email" />
 
     <RelativeLayout
-        android:id="@+id/sign_in_password_view_group"
+        android:id="@+id/view_group_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -103,7 +117,7 @@
         android:layout_below="@+id/label_sign_in_password">
 
         <EditText
-            android:id="@+id/sign_in_password"
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text"
@@ -118,7 +132,7 @@
             tools:ignore="Autofill,LabelFor,RtlSymmetry" />
 
         <ImageButton
-            android:id="@+id/sign_in_password_visibility_icon"
+            android:id="@+id/password_visibility_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorTransparent"
@@ -130,13 +144,29 @@
             android:contentDescription="@string/password_visibility_icon_description" />
     </RelativeLayout>
 
+
+    <TextView
+        android:id="@+id/hint_password"
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="4dp"
+        android:textSize="11sp"
+        android:textColor="@color/colorWhite"
+        android:text="@string/hint_password_text"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/view_group_password"
+        tools:ignore="SmallSp" />
+
     <Button
-        android:id="@+id/sign_in_button"
+        android:id="@+id/next_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
@@ -145,8 +175,8 @@
         android:background="@drawable/rounded_button"
         app:backgroundTint="@color/colorExtraTransparentWhite"
         android:layout_marginRight="8dp"
-        android:text="@string/sign_in_button_text"
+        android:text="@string/next_button_text"
         android:textSize="17sp"
-        android:layout_below="@+id/sign_in_password_view_group" />
+        android:layout_below="@+id/hint_password" />
 
 </RelativeLayout>

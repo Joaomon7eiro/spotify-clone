@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             mSignUpButton.setScaleY(FULL_SIZE);
             ViewCompat.setBackgroundTintList(mSignUpButton, getResources().getColorStateList(R.color.colorPrimary));
 
-            Intent intent = new Intent(getApplication(), SignInActivity.class);
+            Intent intent = new Intent(getApplication(), SignUpActivity.class);
             startActivity(intent);
             overridePendingTransition(0, 0);
         }
@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
             mFacebookButton.setScaleY(FULL_SIZE);
             ViewCompat.setBackgroundTintList(mFacebookButton, getResources().getColorStateList(R.color.facebookColor));
 
+            Intent intent = new Intent(getApplication(), LoadingActivity.class);
+            startActivity(intent);
         }
 
         @Override
@@ -81,6 +83,9 @@ public class MainActivity extends AppCompatActivity {
             mSignInButton.setScaleY(FULL_SIZE);
             ViewCompat.setBackgroundTintList(mSignInButton, getResources().getColorStateList(R.color.colorWhite));
 
+            Intent intent = new Intent(getApplication(), SignInActivity.class);
+            startActivity(intent);
+            overridePendingTransition(0, 0);
         }
 
         @Override
@@ -100,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
         mSignUpButton   = findViewById(R.id.sign_up_button);
         mFacebookButton = findViewById(R.id.facebook_button);
         mSignInButton   = findViewById(R.id.sign_in_button);
-
 
         mSignUpButton.setOnTouchListener(signUpButtonTouchListener);
         mFacebookButton.setOnTouchListener(facebookButtonTouchListener);

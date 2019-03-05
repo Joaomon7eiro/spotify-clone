@@ -3,4 +3,7 @@
     <dimen name="enterScreenFontSize">34sp</dimen>
     <dimen name="enterScreenButtonTextSize">13sp</dimen>
     <dimen name="buttonLetterSpacing">0.05</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
 </resources>
