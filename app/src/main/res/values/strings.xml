@@ -14,4 +14,7 @@
     <string name="hint_password_text">Escolha pelo menos oito caracteres.</string>
     <string name="next_button_text">AVANÇAR</string>
     <string name="password_visibility_icon_description">Password visibility icon</string>
+    <string name="finish_button_text">PRONTO</string>
+    <string name="label_date_text">Qual é a sua data de nascimento?</string>
+    <string name="label_genre_text">Qual é o seu gênero?</string>
 </resources>

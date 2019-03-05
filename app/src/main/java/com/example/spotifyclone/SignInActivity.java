@@ -1,27 +1,35 @@
 package com.example.spotifyclone;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.content.IntentSender;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
-import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.google.android.gms.auth.api.credentials.Credential;
+import com.google.android.gms.auth.api.credentials.CredentialPickerConfig;
+import com.google.android.gms.auth.api.credentials.Credentials;
+import com.google.android.gms.auth.api.credentials.CredentialsClient;
+import com.google.android.gms.auth.api.credentials.HintRequest;
+import com.google.android.gms.auth.api.credentials.IdentityProviders;
+
+
 public class SignInActivity extends AppCompatActivity {
 
-    static final int REQUEST_CODE_GET_ACCOUNTS = 1;
+    static final String TAG = SignInActivity.class.getSimpleName();
+    static final int REQUEST_CODE_HINT = 1;
 
     ImageView mReturnButton;
     ImageButton mPasswordVisibilityIcon;
     EditText mEditTextPassword;
-    AutoCompleteTextView mAutoCompleteTextViewEmail;
+    EditText mEditTextEmail;
+    CredentialsClient mCredentialsClient;
 
     boolean mPasswordVisibility = false;
 
@@ -30,32 +38,36 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
+        mCredentialsClient = Credentials.getClient(this);
+
         mEditTextPassword = findViewById(R.id.password);
-        mAutoCompleteTextViewEmail = findViewById(R.id.email);
-        mReturnButton = findViewById(R.id.return_button);
+        mEditTextEmail = findViewById(R.id.email);
         mPasswordVisibilityIcon = findViewById(R.id.password_visibility_icon);
 
-        mReturnButton.setOnClickListener(new View.OnClickListener() {
+        mEditTextEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
-            }
-        });
 
-        mAutoCompleteTextViewEmail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int permissionCheck = ContextCompat.checkSelfPermission(getApplication(),
-                        Manifest.permission.GET_ACCOUNTS);
+                if (mEditTextEmail.getText().toString().equals("")) {
+                    HintRequest hintRequest = new HintRequest.Builder()
+                            .setHintPickerConfig(new CredentialPickerConfig.Builder()
+                                    .setShowCancelButton(true)
+                                    .build())
+                            .setEmailAddressIdentifierSupported(true)
+                            .setAccountTypes(IdentityProviders.GOOGLE)
+                            .build();
 
-                if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(SignInActivity.this,
-                            new String[]{Manifest.permission.GET_ACCOUNTS}, REQUEST_CODE_GET_ACCOUNTS);
+                    PendingIntent intent = mCredentialsClient.getHintPickerIntent(hintRequest);
+                    try {
+                        startIntentSenderForResult(intent.getIntentSender(), REQUEST_CODE_HINT, null, 0, 0, 0);
+                    } catch (IntentSender.SendIntentException e) {
+                        Log.e("a", "Could not start hint picker Intent", e);
+                    }
                 }
+
             }
+
         });
-
-
 
         mPasswordVisibilityIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,22 +84,27 @@ public class SignInActivity extends AppCompatActivity {
                 }
             }
         });
+        mReturnButton = findViewById(R.id.return_button);
+
+
+        mReturnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
     }
 
+
     @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           @NonNull String permissions[], @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case REQUEST_CODE_GET_ACCOUNTS: {
-                // If request is cancelled, the result arrays are empty.
-//                if (grantResults.length > 0
-//                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//
-//                } else {
-//                    // permission denied, boo! Disable the
-//                    // functionality that depends on this permission.
-//                }
-//                return;
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_CODE_HINT) {
+            if (resultCode == RESULT_OK) {
+                Credential credential = data.getParcelableExtra(Credential.EXTRA_KEY);
+                mEditTextEmail.setText(credential.getId());
             }
         }
     }
@@ -97,4 +114,5 @@ public class SignInActivity extends AppCompatActivity {
         super.onBackPressed();
         overridePendingTransition(0, 0);
     }
+
 }
